@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import altair as alt
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -21,7 +19,7 @@ st.markdown('#### App by Jake Michna')
 ### Train model ###
 
 #Load in data frame of all history
-s = pd.read_csv('social_media_usage.csv')
+s = pd.read_csv('app/social_media_usage.csv')
 
 #Function checks whether x == 1, if not 1 then 0
 def clean_sm(x):
