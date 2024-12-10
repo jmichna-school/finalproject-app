@@ -2,10 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import accuracy_score
 
 
 st.markdown('# Predict LinkedIn Usage')
@@ -19,7 +15,7 @@ st.markdown('#### App by Jake Michna')
 ### Train model ###
 
 #Load in data frame of all history
-s = pd.read_csv('app/social_media_usage.csv')
+s = pd.read_csv('social_media_usage.csv')
 
 #Function checks whether x == 1, if not 1 then 0
 def clean_sm(x):
@@ -94,10 +90,7 @@ age_input = st.number_input(label='Age', \
     min_value=0, max_value=100, value=25)
 
 
-#String
+#Model output
 st.markdown(LinkedIn_app(income=income_input, education=education_input, 
                 parent=parent_input, married=married_input, female=female_input, 
                 age=age_input, model = lr))
-
-
-#Graph?
