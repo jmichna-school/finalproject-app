@@ -70,21 +70,112 @@ def LinkedIn_app(income, education, parent, married, female, age, model):
     return output_string
 
 #Input
-income_input = st.number_input(label='Income Level (1: Low to 9: High)', \
-    min_value=1, max_value=9, value=5)
+income_box = st.selectbox('Income', 
+                          options = ['1. Less than $10k', 
+                                     '2. $10k to under $20k', 
+                                     '3. $20k to under $30k', 
+                                     '4. $30k to under $40k', 
+                                     '5. $40k to under $50k', 
+                                     '6. $50k to under $75k', 
+                                     '7. $75k to under $100k', 
+                                     '8. $100k to under $150k', 
+                                     '9. $150k and over'])
 
-education_input = st.number_input(label='Education Level (1 to 8)', \
-    min_value=1, max_value=8, value=5)
+income_input = 0
+if income_box == '1. Less than $10k':
+    income_input = 1
+elif income_box == '2. $10k to under $20k':
+    income_input = 2
+elif income_box == '3. $20k to under 30k':
+    income_input = 3
+elif income_box == '4. $30k to under $40k':
+    income_input = 4
+elif income_box == '5. $40k to under $50k':
+    income_input = 5
+elif income_box == '6. $50k to under $75k':
+    income_input = 6
+elif income_box == '7. $75k to under $100k':
+    income_input = 7
+elif income_box == '8. $100k to under $150k':
+    income_input = 8
+elif income_box == '9. $150k and over':
+    income_input = 9
+else:
+    0
 
-parent_input = st.number_input(label='Parent (1: Yes, 0: No)', \
-    min_value=0, max_value=1, value=0)
+#st.write(income_input)
 
 
-married_input = st.number_input(label='Married (1: Yes, 0: no)', \
-    min_value=0, max_value=1, value=0)
+education_box = st.selectbox('Education Level', 
+                             options = ['Less than high school', 
+                                        'High school incomplete', 
+                                        'High school graduate', 
+                                        'Some college, no degree', 
+                                        'Two-year associate degree', 
+                                        'Four-year college degree', 
+                                        'Some post grad schooling', 
+                                        'Post grad degree'])
 
-female_input = st.number_input(label='Female (1: Yes, 0: No)', \
-    min_value=0, max_value=1, value=0)
+
+education_input = 0
+if education_box == 'Less than high school':
+    education_input = 1
+elif education_box == 'High school incomplete':
+    education_input = 2
+elif education_box == 'High school graduate':
+    education_input = 3
+elif education_box == 'Some college, no degree':
+    education_input = 4
+elif education_box == 'Two-year associate degree':
+    education_input = 5
+elif education_box == 'Four-year college degree':
+    education_input = 6
+elif education_box == 'Some post grad schooling':
+    education_input = 7
+elif education_box == 'Post grad degree':
+    education_input = 8
+else:
+    education_input = 0
+
+#st.write(education_input)
+
+
+
+parent_box = st.selectbox('Parent?', 
+                          options=['Yes', 'No'])
+
+parent_input = 0
+if parent_box == 'Yes':
+    parent_input = 1
+else:
+    parent_input = 0
+
+#st.write(parent_input)
+
+
+married_box = st.selectbox('Married?', 
+                           options=['Yes', 'No'])
+
+married_input = 0
+if married_box == 'Yes':
+    married_input = 1
+else:
+    married_input = 0
+
+
+#st.write(married_input)
+
+
+female_box = st.selectbox('Female?', 
+                          options=['Yes', 'No'])
+
+female_input = 0
+if female_box == 'Yes':
+    female_input = 1
+else:
+    female_input = 0
+
+#st.write(female_input)
 
 age_input = st.number_input(label='Age', \
     min_value=0, max_value=100, value=25)
